@@ -1,0 +1,42 @@
+import time
+
+print('please insert your ATM card')
+time.sleep(5)
+pin = int(input('Enter your 4 digit ATM Pin :-'))
+balance = 1000
+if pin == 1234:
+    while True:
+        print('1 = check Balance')
+        print('2 = Withdraw money')
+        print('3 = Deposit Money')
+        print('4 = Exit')
+        try:
+            option = int(input('Choose any option above'))
+        except:
+            print('please choose the valid option')
+        if option == 1:
+            print('-------------------------------------')
+            print(f'Your current balance is {balance}')
+        if option == 2:
+            withdraw_money = int(input('Enter your with draw Amount'))
+            if withdraw_money < balance:
+                balance = balance - withdraw_money
+                print('-------------------------------------')
+                print(f'{withdraw_money} is debited from your acount')
+                print(f'Your current balance is {balance}')
+            else:
+                print('You dont have sufficient money')
+
+        if option == 3:
+            deposite_money = int(input('Enytered Your Deposit money'))
+            balance = balance + deposite_money
+            print('--------------------------------------')
+            print(f'{deposite_money} is credited to your account')
+            print(f'Your current balance is {balance}')
+        if option == 4:
+            print('Thank you for visiting our ATM Machine....See you Again ')
+            break
+else:
+    print('You entered the wrong pin...Try again')
+
+
